@@ -154,7 +154,7 @@ Do not include any markdown backticks or formatting outside of the raw JSON obje
           responseMimeType: 'application/json',
         },
       }, {
-        apiVersion: 'v1'
+        apiVersion: 'v1beta'
       });
 
       const result = await model.generateContent(prompt);
