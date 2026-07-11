@@ -142,7 +142,7 @@ const KITCHEN_EQUIPMENT = [
 function App() {
   // Config & State
   const [apiKey, setApiKey] = useState(() => localStorage.getItem('GEMINI_API_KEY') || '');
-  const [selectedModel, setSelectedModel] = useState(() => localStorage.getItem('GEMINI_MODEL') || 'gemini-1.5-flash');
+  const [selectedModel, setSelectedModel] = useState(() => localStorage.getItem('GEMINI_MODEL') || 'gemini-flash-latest');
   const [showSettings, setShowSettings] = useState(false);
   
   // Form parameters
@@ -387,14 +387,15 @@ function App() {
                   onChange={(e) => handleSaveModel(e.target.value)} 
                   className="input-select"
                 >
-                  <option value="gemini-1.5-flash">Gemini 1.5 Flash (Default)</option>
-                  <option value="gemini-2.5-flash">Gemini 2.5 Flash (Recommended / Newer)</option>
+                  <option value="gemini-flash-latest">Gemini Flash (Latest - Recommended)</option>
+                  <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
                   <option value="gemini-1.5-flash-latest">Gemini 1.5 Flash (Latest Version)</option>
-                  <option value="gemini-1.5-pro">Gemini 1.5 Pro (Slower / Smarter)</option>
-                  <option value="gemini-2.5-pro">Gemini 2.5 Pro (Premium)</option>
+                  <option value="gemini-1.5-flash">Gemini 1.5 Flash (Older Version)</option>
+                  <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                  <option value="gemini-2.5-pro">Gemini 2.5 Pro</option>
                 </select>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem' }}>
-                  ℹ️ <em>If you receive a "Model not found (404)" error, try switching to <strong>Gemini 2.5 Flash</strong> or <strong>Gemini 1.5 Flash (Latest Version)</strong>.</em>
+                  ℹ️ <em>If you receive a "Model not found (404)" error, try switching to <strong>Gemini Flash (Latest - Recommended)</strong>.</em>
                 </p>
               </div>
             </div>

@@ -14,7 +14,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
  */
 export async function generateCookingPlan({
   apiKey,
-  modelName = 'gemini-1.5-flash',
+  modelName = 'gemini-1.5-flash-latest',
   dayDescription,
   dietaryPreference,
   householdSize,
@@ -133,6 +133,7 @@ Do not include any markdown backticks or formatting outside of the raw JSON obje
   // Define a candidates array for fallback in case of 404 (model not found) error
   const candidates = [
     modelName,
+    'gemini-flash-latest',
     'gemini-2.5-flash',
     'gemini-1.5-flash-latest',
     'gemini-1.5-flash',
@@ -152,6 +153,8 @@ Do not include any markdown backticks or formatting outside of the raw JSON obje
         generationConfig: {
           responseMimeType: 'application/json',
         },
+      }, {
+        apiVersion: 'v1'
       });
 
       const result = await model.generateContent(prompt);
